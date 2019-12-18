@@ -6,19 +6,21 @@
     "deprecation": {
       "severity": "warning"
     },
-    "component-class-suffix": true,
+    "component-class-suffix": false,
     "contextual-lifecycle": true,
     "directive-class-suffix": true,
     "directive-selector": [
       true,
       "attribute",
       "app",
+      "layout",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
       "app",
+      "layout",
       "kebab-case"
     ],
     "import-blacklist": [

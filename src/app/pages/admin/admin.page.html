@@ -1,0 +1,37 @@
+<app-header></app-header>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened>
+    <mat-list>
+      <h3 routerLink="/admin/dashboard" routerLinkActive="active" mat-subheader>工作台</h3>
+      <mat-divider></mat-divider>
+      <h3 routerLink="/admin/supplier/list" routerLinkActive="active" mat-subheader>
+        <mat-icon mat-list-icon>thumb_up</mat-icon> 供应商
+      </h3>
+      <mat-divider></mat-divider>
+      <h3 routerLink="/admin/project/list" routerLinkActive="active" mat-subheader>
+        <mat-icon mat-list-icon>card_travel</mat-icon> 项目
+      </h3>
+      <mat-divider></mat-divider>
+      <h3 routerLink="/admin/employee/list" routerLinkActive="active" mat-subheader>
+        <mat-icon mat-list-icon>supervisor_account</mat-icon> 外包人员
+      </h3>
+      <mat-divider></mat-divider>
+      <h3 routerLink="/admin/dashboard" routerLinkActive="active" mat-subheader>
+        <mat-icon mat-list-icon>settings</mat-icon> 设置 <mat-icon slot="end" mat-list-icon>arrow-right</mat-icon>
+      </h3>
+      <mat-list-item>
+        <p mat-line>用户管理</p>
+      </mat-list-item>
+      <mat-list-item>
+        <p mat-line>角色管理</p>
+      </mat-list-item>
+      <mat-list-item>
+        <p mat-line>权限管理</p>
+      </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+    <button (click)="sign()" class="sign-fab" mat-fab color="primary">签到</button>
+  </mat-sidenav-content>
+</mat-sidenav-container>

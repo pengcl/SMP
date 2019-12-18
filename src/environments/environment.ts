@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  PREFIX_URL: 'http://192.168.31.92:8080/tv-oa/',
+  FILE_PREFIX_URL: 'http://192.168.31.92:8080/im/'
 };
 
 /*
