@@ -1,6 +1,9 @@
 import {Component} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatTableDataSource} from '@angular/material';
+import {ProjectService} from "../../project/project.service";
+import {SupplierService} from "../../supplier/supplier.service";
 import {EmployeeService} from '../employee.service';
 
 export interface Employee {
@@ -23,7 +26,8 @@ export interface Employee {
   styleUrls: ['./list.page.scss']
 })
 export class AdminEmployeeListPage {
-
+  routeParams = this.route.snapshot.queryParams;
+  params = {};
   displayedColumns: string[] = [
     'select',
     'name',
@@ -34,16 +38,53 @@ export class AdminEmployeeListPage {
     'outTime',
     'period',
     'attendance',
-    'status'
+    'status',
+    'actions'
   ];
   selection = new SelectionModel<Employee>(true, []);
   dataSource;
+  suppliers;
+  projects;
 
-  constructor(private employeeSvc: EmployeeService) {
-    employeeSvc.list().subscribe(res => {
+  constructor(private route: ActivatedRoute,
+              private projectSvc: ProjectService,
+              private supplierSvc: SupplierService,
+              private employeeSvc: EmployeeService) {
+    for (const key in this.routeParams) {
+      if (this.routeParams[key] && key !== 'type') {
+        this.params[key + 's'] = this.routeParams[key];
+      }
+    }
+    projectSvc.list().subscribe(res => {
+      this.projects = res;
+    });
+    supplierSvc.list().subscribe(res => {
+      this.suppliers = res;
+    });
+    this.getData();
+  }
+
+  valueChange(target, e) {
+    this.params[target] = e;
+    const params = {};
+    for (const key in this.params) {
+      if (this.params[key]) {
+        params[key] = this.params[key];
+      }
+    }
+    this.params = params;
+    this.getData();
+  }
+
+  getData() {
+    this.employeeSvc.find(this.params).subscribe(res => {
       console.log(res);
       this.dataSource = new MatTableDataSource<Employee>(res);
     });
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   /** Whether the number of selected elements matches the total number of rows. */

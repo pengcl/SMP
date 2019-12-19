@@ -1,9 +1,9 @@
 <div class="container">
   <div class="statistics">
-    <div class="statistic-item">
+    <div (click)="setType('')" class="statistic-item">
       <div class="statistic">
         <div class="statistic-box">
-          <div class="statistic-body"><span class="counter counter-link">150</span></div>
+          <div class="statistic-body"><span class="counter counter-link">4</span></div>
           <div class="statistic-ft">
             <i class="icons icon-project" style="background-color: red"></i>
             <span class="label">供应商</span>
@@ -14,10 +14,10 @@
     <div class="statistic-item">
       <div class="statistic">
         <div class="statistic-box">
-          <div class="statistic-body"><span class="counter counter-link">150</span></div>
+          <div class="statistic-body"><span class="counter counter-link">1</span></div>
           <div class="statistic-ft">
             <i class="icons icon-users" style="background-color: red"></i>
-            <span class="label">外包人员</span>
+            <span class="label">初级</span>
           </div>
         </div>
       </div>
@@ -25,16 +25,27 @@
     <div class="statistic-item">
       <div class="statistic">
         <div class="statistic-box">
-          <div class="statistic-body"><span class="counter counter-link">150</span></div>
+          <div class="statistic-body"><span class="counter counter-link">1</span></div>
           <div class="statistic-ft">
             <i class="icons icon-users" style="background-color: red"></i>
-            <span class="label">试用中的外包人员</span>
+            <span class="label">中级</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="statistic-item">
+      <div class="statistic">
+        <div class="statistic-box">
+          <div class="statistic-body"><span class="counter counter-link">2</span></div>
+          <div class="statistic-ft">
+            <i class="icons icon-users" style="background-color: red"></i>
+            <span class="label">高级</span>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <form class="search-form">
+  <!--<form class="search-form">
     <mat-form-field>
       <mat-label>可通过 姓名/ID 进行搜索</mat-label>
       <input matInput>
@@ -44,7 +55,33 @@
       <button mat-raised-button color="primary">新增</button>
       <button mat-raised-button color="warn">删除</button>
     </div>
-  </form>
+  </form>-->
+  <ion-grid class="table-actions">
+    <ion-row>
+      <ion-col size="3">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+      </ion-col>
+      <ion-col size="3">
+        <mat-form-field>
+          <mat-label>项目</mat-label>
+          <mat-select (valueChange)="valueChange('projects',$event)">
+            <mat-option [value]="''">
+              所有
+            </mat-option>
+            <mat-option *ngFor="let item of projects" [value]="item.id">{{item.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </ion-col>
+      <ion-col size="6">
+        <div class="actions">
+          <button mat-raised-button color="primary">新增</button>
+          <button mat-raised-button color="warn">删除</button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
   <table *ngIf="dataSource" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!-- Checkbox Column -->
     <ng-container matColumnDef="select">

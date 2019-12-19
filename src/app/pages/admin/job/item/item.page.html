@@ -1,0 +1,103 @@
+<mat-card class="profile">
+  <mat-card-header *ngIf="data">
+    <div mat-card-avatar class="header-image">
+      <ion-icon style="font-size: 72px" name="ios-appstore"></ion-icon>
+    </div>
+    <mat-card-title>{{data.name}}</mat-card-title>
+    <mat-card-subtitle>{{data.department.name}} <span>{{data.contract.name}}</span></mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-footer class="page-extra">
+    <div>
+      <p>岗位</p>
+      <p> 2 </p>
+    </div>
+    <div>
+      <p>在项人员</p>
+      <p> 4 </p>
+    </div>
+    <div>
+      <p>子项目</p>
+      <p> 2 </p>
+    </div>
+  </mat-card-footer>
+</mat-card>
+
+<div class="content">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="left-content" size="12">
+        <mat-tab-group>
+          <mat-tab label="基本信息">
+            <form *ngIf="form">
+              <ion-grid>
+                <ion-row>
+                  <ion-col class="left-content" size="6">
+                    <mat-form-field appearance="outline">
+                      <mat-label>合作项目名称</mat-label>
+                      <input [value]="form.name" matInput placeholder="合作项目名称" required>
+                    </mat-form-field>
+                  </ion-col>
+                  <ion-col class="left-content" size="6">
+                    <mat-form-field appearance="outline">
+                      <mat-label>采购合同</mat-label>
+                      <mat-select [(value)]="data.contract.name" placeholder="采购合同" required>
+                        <mat-option *ngFor="let item of contracts" [value]="item.name">{{item.name}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </ion-col>
+                  <ion-col class="left-content" size="6">
+                    <mat-form-field appearance="outline">
+                      <mat-label>项目负责人</mat-label>
+                      <mat-select [(value)]="charge" placeholder="项目负责人" placeholder="项目负责人" required>
+                        <mat-option value="彭琛岚">彭琛岚</mat-option>
+                        <mat-option value="卢立江">卢立江</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </ion-col>
+                  <ion-col class="left-content" size="6">
+                    <mat-form-field appearance="outline">
+                      <mat-label>标段</mat-label>
+                      <input matInput placeholder="标段" value="测试标段01" required>
+                    </mat-form-field>
+                  </ion-col>
+                  <ion-col class="left-content" size="6">
+                    <mat-form-field appearance="outline">
+                      <mat-label>批次</mat-label>
+                      <input matInput placeholder="批次" value="测试批次01" required>
+                    </mat-form-field>
+                  </ion-col>
+                  <ion-col class="left-content" size="6">
+                    <mat-form-field appearance="outline">
+                      <mat-label>工作地点</mat-label>
+                      <input matInput placeholder="工作地点" value="新航站楼" required>
+                    </mat-form-field>
+                  </ion-col>
+                  <ion-col class="left-content" size="6">
+                    <mat-form-field appearance="outline">
+                      <mat-label>申请部门</mat-label>
+                      <mat-select [(value)]="data.department.name" placeholder="采购合同" required>
+                        <mat-option *ngFor="let item of departments" [value]="item.name">{{item.name}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </ion-col>
+                  <ion-col class="left-content" size="6">
+                    <mat-form-field appearance="outline">
+                      <mat-label>管理部门</mat-label>
+                      <mat-select [(value)]="data.department.name" placeholder="采购合同" required>
+                        <mat-option *ngFor="let item of departments" [value]="item.name">{{item.name}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+
+              <button mat-raised-button color="primary">保存</button>
+            </form>
+          </mat-tab>
+          <mat-tab label="在岗"></mat-tab>
+          <mat-tab label="试用"></mat-tab>
+        </mat-tab-group>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>

@@ -24,6 +24,13 @@ mat-sidenav-container {
         height: 32px;
         color: #666;
         box-sizing: border-box;
+        cursor: pointer;
+        outline: unset;
+
+        &.active {
+          background-image: linear-gradient(to right, #fff, rgba(0, 0, 0, .12));
+          position: relative;
+        }
       }
     }
 

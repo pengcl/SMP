@@ -80,11 +80,18 @@
                   <mat-card-footer>
                     <mat-label>成员</mat-label>
                     <div class="avatars">
-                  <span *ngFor="let employee of item.employees" class="avatar">
-                    <img [src]="'/api' + employee.avatar.url">
-                  </span>
+                      <span *ngFor="let employee of item.employees" class="avatar">
+                        <a [routerLink]="['/admin/employee/item',employee.id]" href="javascript:;">
+                          <img [src]="'/api' + employee.avatar.url">
+                        </a>
+                      </span>
                     </div>
                   </mat-card-footer>
+                </mat-card>
+              </ion-col>
+              <ion-col size="4">
+                <mat-card class="more">
+                  <a routerLink="/admin/project/list" class="more-btn">查看更多</a>
                 </mat-card>
               </ion-col>
             </ion-row>
@@ -98,13 +105,13 @@
                       <img [src]="'/api' + item.avatar.url">
                     </div>
                     <mat-card-title>
-                      <span>{{item.name}}</span>
+                      <a [routerLink]="['/admin/employee/item',item.id]" href="javascript:;">{{item.name}}</a>
                       <mat-chip-list>
                         <mat-chip color="primary" selected>{{item.post.name}}</mat-chip>
                         <mat-chip color="accent" selected>{{item.level.name}}</mat-chip>
                       </mat-chip-list>
                     </mat-card-title>
-                    <mat-card-subtitle>{{item.suppliers[0].name}}</mat-card-subtitle>
+                    <mat-card-subtitle><a [routerLink]="['/admin/supplier/item',item.suppliers[0].id]" href="javascript:;">{{item.suppliers[0].name}}</a></mat-card-subtitle>
                     <mat-menu #appMenu="matMenu">
                       <button *ngIf="item.status === 'in'" mat-menu-item>出厂</button>
                       <button *ngIf="item.status === 'trial'" mat-menu-item>入厂</button>
@@ -132,6 +139,11 @@
                       </ion-row>
                     </ion-grid>
                   </mat-card-content>
+                </mat-card>
+              </ion-col>
+              <ion-col size="4">
+                <mat-card class="more">
+                  <a routerLink="/admin/employee/list" class="more-btn">查看更多</a>
                 </mat-card>
               </ion-col>
             </ion-row>

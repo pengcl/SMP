@@ -16,6 +16,10 @@ export class EmployeeService {
     return this.http.get('api/employees/' + id);
   }
 
+  find(body): Observable<any> {
+    return this.http.get('api/employees', {params: body});
+  }
+
   count(): Observable<any> {
     return this.http.get('api/employees/count');
   }

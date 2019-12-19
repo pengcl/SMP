@@ -219,7 +219,35 @@ export class UserStatusPipe implements PipeTransform {
       return status;
     }
     let label = '试用中';
-    let className = 'text-warn';
+    let className = 'text-primary';
+    if (status === 'new') {
+      label = '新建档';
+      className = 'text-new';
+    }
+    if (status === 'request') {
+      label = '申请面试';
+      className = 'text-new';
+    }
+    if (status === 'waiting') {
+      label = '等待面试';
+      className = 'text-waiting';
+    }
+    if (status === 'fail') {
+      label = '面试失败';
+      className = 'text-fail';
+    }
+    if (status === 'want') {
+      label = '申请入厂';
+      className = 'text-fail';
+    }
+    if (status === 'success') {
+      label = '面试成功';
+      className = 'text-success';
+    }
+    if (status === 'trial') {
+      label = '试用中';
+      className = 'text-primary';
+    }
     if (status === 'in') {
       label = '入厂';
       className = 'text-success';

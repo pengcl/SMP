@@ -56,6 +56,16 @@ const routes: Routes = [
         path: 'employee/item/:id',
         loadChildren: () =>
           import('./employee/item/item.module').then(m => m.AdminEmployeeItemPageModule)
+      },
+      {
+        path: 'job/list',
+        loadChildren: () =>
+          import('./job/list/list.module').then(m => m.AdminJobListPageModule)
+      },
+      {
+        path: 'job/item/:id',
+        loadChildren: () =>
+          import('./job/item/item.module').then(m => m.AdminJobItemPageModule)
       }
     ]
   }

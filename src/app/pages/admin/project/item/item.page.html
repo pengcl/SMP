@@ -127,8 +127,7 @@
               <!-- Name Column -->
               <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef> 名称</th>
-                <td mat-cell *matCellDef="let element"><a [routerLink]="['/admin/project/item',element.id]" class="link"
-                                                          href="javascript:;">{{element.name}}</a></td>
+                <td mat-cell *matCellDef="let element">{{element.name}}</td>
               </ng-container>
 
               <!-- Level Column -->
@@ -152,8 +151,9 @@
               <!-- Supplier Column -->
               <ng-container matColumnDef="supplier">
                 <th mat-header-cell *matHeaderCellDef> 供应商</th>
-                <td mat-cell *matCellDef="let element"><a [routerLink]="['/admin/project/item',element.id]" class="link"
-                                                          href="javascript:;">{{element.supplier.name}}</a></td>
+                <td mat-cell *matCellDef="let element">
+                  <a [routerLink]="['/admin/supplier/item',element.supplier.id]" class="link" href="javascript:;">{{element.supplier.name}}</a>
+                </td>
               </ng-container>
 
               <!-- InTime Column -->
@@ -182,8 +182,10 @@
               <!-- Used Column -->
               <ng-container matColumnDef="actions">
                 <th mat-header-cell *matHeaderCellDef> 操作</th>
-                <td class="actions" mat-cell *matCellDef="let element"><a href="javascript:;">编辑</a><a
-                  href="javascript:;">删除</a></td>
+                <td class="actions" mat-cell *matCellDef="let element">
+                  <a href="javascript:;">编辑</a>
+                  <a href="javascript:;">删除</a>
+                </td>
               </ng-container>
 
               <tr mat-header-row *matHeaderRowDef="displayed['job']"></tr>
@@ -222,33 +224,28 @@
               <!-- Name Column -->
               <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef> 名称</th>
-                <td mat-cell *matCellDef="let element"><a [routerLink]="['/admin/employee/item',element.id]"
-                                                          class="link"
-                                                          href="javascript:;">{{element.name}}</a></td>
+                <td mat-cell *matCellDef="let element">
+                  <a [routerLink]="['/admin/employee/item',element.id]" class="link" href="javascript:;">{{element.name}}</a>
+                </td>
               </ng-container>
 
               <!-- Post Column -->
               <ng-container matColumnDef="post">
                 <th mat-header-cell *matHeaderCellDef> 岗位</th>
-                <td mat-cell *matCellDef="let element"><a [routerLink]="['/admin/supplier/item',element.id]"
-                                                          class="link"
-                                                          href="javascript:;">{{element.post.name}}</a></td>
+                <td mat-cell *matCellDef="let element">{{element.post.name}}</td>
               </ng-container>
 
               <!-- Level Column -->
               <ng-container matColumnDef="level">
                 <th mat-header-cell *matHeaderCellDef> 级别</th>
-                <td mat-cell *matCellDef="let element"><a [routerLink]="['/admin/supplier/item',element.id]"
-                                                          class="link"
-                                                          href="javascript:;">{{element.level.name}}</a></td>
+                <td mat-cell *matCellDef="let element">{{element.level.name}}</td>
               </ng-container>
 
               <!-- projects Column -->
               <ng-container matColumnDef="projects">
                 <th mat-header-cell *matHeaderCellDef> 项目</th>
-                <td mat-cell *matCellDef="let element"><a [routerLink]="['/admin/supplier/item',element.id]"
-                                                          class="link"
-                                                          href="javascript:;">{{element.projects.length > 0 ? element.projects[0].name : '无'}}</a>
+                <td mat-cell *matCellDef="let element">
+                  <a [routerLink]="['/admin/supplier/item',element.id]" class="link" href="javascript:;">{{element.projects.length > 0 ? element.projects[0].name : '无'}}</a>
                 </td>
               </ng-container>
 
@@ -256,20 +253,14 @@
               <ng-container matColumnDef="inTime">
                 <th mat-header-cell *matHeaderCellDef> 入厂时间</th>
                 <td mat-cell *matCellDef="let element">
-                  <a [routerLink]="['/admin/supplier/employee/list']"
-                     [queryParams]="{supplier:element.supplier}"
-                     class="link" href="javascript:;">{{element.inTime | date : 'yyyy-MM-dd'}}</a>
+                  {{element.inTime | date : 'yyyy-MM-dd'}}
                 </td>
               </ng-container>
 
               <!-- Weight Column -->
               <ng-container matColumnDef="outTime">
                 <th mat-header-cell *matHeaderCellDef> 出厂时间</th>
-                <td mat-cell *matCellDef="let element">
-                  <a [routerLink]="['/admin/supplier/employee/list']"
-                     [queryParams]="{supplier:element.supplier,type:'0'}"
-                     class="link" href="javascript:;">{{element.outTime | date : 'yyyy-MM-dd'}}</a>
-                </td>
+                <td mat-cell *matCellDef="let element">{{element.outTime | date : 'yyyy-MM-dd'}}</td>
               </ng-container>
 
               <!-- Symbol Column -->
@@ -326,22 +317,21 @@
               <!-- Name Column -->
               <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef> 名称</th>
-                <td mat-cell *matCellDef="let element"><a [routerLink]="['/admin/project/item',element.id]" class="link"
-                                                          href="javascript:;">{{element.name}}</a></td>
+                <td mat-cell *matCellDef="let element">
+                  <a [routerLink]="['/admin/project/item',element.id]" class="link" href="javascript:;">{{element.name}}</a>
+                </td>
               </ng-container>
 
               <!-- contract Column -->
               <ng-container matColumnDef="contract">
                 <th mat-header-cell *matHeaderCellDef> 合同</th>
-                <td mat-cell *matCellDef="let element"><a [routerLink]="['/admin/project/item',element.id]" class="link"
-                                                          href="javascript:;">{{element.contract.name}}</a></td>
+                <td mat-cell *matCellDef="let element">{{element.contract.name}}</td>
               </ng-container>
 
               <!-- department Column -->
               <ng-container matColumnDef="department">
                 <th mat-header-cell *matHeaderCellDef> 部门</th>
-                <td mat-cell *matCellDef="let element"><a [routerLink]="['/admin/project/item',element.id]" class="link"
-                                                          href="javascript:;">{{element.department.name}}</a></td>
+                <td mat-cell *matCellDef="let element">{{element.department.name}}</td>
               </ng-container>
 
               <!-- suppliers Column -->
@@ -357,8 +347,9 @@
               <!-- employee Column -->
               <ng-container matColumnDef="employee">
                 <th mat-header-cell *matHeaderCellDef> 负责人</th>
-                <td mat-cell *matCellDef="let element"><a [routerLink]="['/admin/project/item',element.id]" class="link"
-                                                          href="javascript:;">{{element.employee.name}}</a></td>
+                <td mat-cell *matCellDef="let element">
+                  <a [routerLink]="['/admin/project/item',element.employee.id]" class="link" href="javascript:;">{{element.employee.name}}</a>
+                </td>
               </ng-container>
 
               <!-- Weight Column -->

@@ -10,7 +10,6 @@ export class JwtInterceptors implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (req.url !== 'api/auth/local') {
-      console.log(req.url, this.authSvc.token().jwt);
       const JWT = {
         Authorization: 'Bearer ' + this.authSvc.token().jwt
       };

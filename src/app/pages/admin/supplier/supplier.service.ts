@@ -16,6 +16,10 @@ export class SupplierService {
     return this.http.get('api/suppliers/' + id);
   }
 
+  find(body): Observable<any> {
+    return this.http.get('api/suppliers', {params: body});
+  }
+
   count(): Observable<any> {
     return this.http.get('api/suppliers/count');
   }

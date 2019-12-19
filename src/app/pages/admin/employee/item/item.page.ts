@@ -42,7 +42,7 @@ export class AdminEmployeeItemPage {
       this.form = res;
       console.log(this.form);
     });
-    projectSvc.list().subscribe(res => {
+    projectSvc.find({employees: this.id}).subscribe(res => {
       this.source.project = new MatTableDataSource<any>(res);
     });
     interviewSvc.find(this.id).subscribe(res => {
@@ -50,9 +50,6 @@ export class AdminEmployeeItemPage {
     });
     attendanceSvc.find(this.id).subscribe(res => {
       this.source.attendance = new MatTableDataSource<any>(res);
-    });
-    jobSvc.list({id: '1', name: 'pengcl'}).subscribe(res => {
-
     });
   }
 

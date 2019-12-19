@@ -16,6 +16,10 @@ export class ProjectService {
     return this.http.get('api/projects/' + id);
   }
 
+  find(body): Observable<any> {
+    return this.http.get('api/projects', {params: body});
+  }
+
   count(): Observable<any> {
     return this.http.get('api/projects/count');
   }

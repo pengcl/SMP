@@ -10,9 +10,11 @@ import {NotifyComponent} from '../notify/notify.component';
 })
 export class HeaderComponent {
   title = 'SMP';
+  user = this.authSvc.currentUser;
 
   constructor(private popoverController: PopoverController,
               private authSvc: AuthService) {
+    console.log(this.user[this.user.type]);
   }
 
   async presentPopover(e: any) {

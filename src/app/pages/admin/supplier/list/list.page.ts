@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatTableDataSource} from '@angular/material';
+import {ProjectService} from "../../project/project.service";
 import {SupplierService} from '../supplier.service';
+import {Employee} from "../../employee/list/list.page";
 
 export interface Supplier {
   name: string;
@@ -17,23 +20,58 @@ export interface Supplier {
   styleUrls: ['./list.page.scss']
 })
 export class AdminSupplierListPage implements OnInit {
-
+  routeParams = this.route.snapshot.queryParams;
+  params = {};
   displayedColumns: string[] = ['select', 'name', 'projects', 'employees'];
   dataSource;
   selection;
   suppliers;
+  projects;
 
-  constructor(private supplierSvc: SupplierService) {
-    supplierSvc.list().subscribe(res => {
-      console.log(res);
-      this.dataSource = new MatTableDataSource<Supplier>(res);
-      this.selection = new SelectionModel<Supplier>(true, []);
+  constructor(private route: ActivatedRoute,
+              private supplierSvc: SupplierService,
+              private projectSvc: ProjectService) {
+    for (const key in this.routeParams) {
+      if (this.routeParams[key] && key !== 'type') {
+        this.params[key + 's'] = this.routeParams[key];
+      }
+    }
+    projectSvc.list().subscribe(res => {
+      this.projects = res;
     });
+    this.getData();
   }
 
   ngOnInit() {
 
   }
+
+  setType() {
+  }
+
+  valueChange(target, e) {
+    this.params[target] = e;
+    const params = {};
+    for (const key in this.params) {
+      if (this.params[key]) {
+        params[key] = this.params[key];
+      }
+    }
+    this.params = params;
+    this.getData();
+  }
+
+  getData() {
+    this.supplierSvc.find(this.params).subscribe(res => {
+      this.dataSource = new MatTableDataSource<Supplier>(res);
+      this.selection = new SelectionModel<Supplier>(true, []);
+    });
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
