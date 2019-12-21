@@ -16,6 +16,18 @@ export class JobService {
     return this.http.get('api/jobs/' + id);
   }
 
+  post(body): Observable<any> {
+    return this.http.post('api/jobs', body);
+  }
+
+  put(id, body): Observable<any> {
+    return this.http.put('api/jobs/' + id, body);
+  }
+
+  delete(id): Observable<any> {
+    return this.http.delete('api/jobs/' + id);
+  }
+
   count(): Observable<any> {
     return this.http.get('api/jobs/count');
   }

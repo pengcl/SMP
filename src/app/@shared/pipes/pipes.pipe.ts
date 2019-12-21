@@ -307,3 +307,16 @@ export class TableLabelPipe implements PipeTransform {
     return labels[index].cn;
   }
 }
+
+@Pipe({
+  name: 'idToName',
+  pure: false
+})
+// not being finished
+@Injectable()
+export class IdToNamePipe implements PipeTransform {
+  transform(id, arr): any {
+    const index = getIndex(arr, 'id', id);
+    return arr[index].name;
+  }
+}

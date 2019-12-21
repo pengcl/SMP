@@ -27,6 +27,16 @@ const routes: Routes = [
         loadChildren: () =>
           import('./dashboard/employee/employee.module').then(m => m.AdminDashboardEmployeePageModule)
       },
+      {
+        path: 'dashboard/supplier',
+        loadChildren: () =>
+          import('./dashboard/supplier/supplier.module').then(m => m.AdminDashboardSupplierPageModule)
+      },
+      {
+        path: 'dashboard/manager',
+        loadChildren: () =>
+          import('./dashboard/manager/manager.module').then(m => m.AdminDashboardManagerPageModule)
+      },
       {// 项目例表
         path: 'project/list',
         loadChildren: () =>

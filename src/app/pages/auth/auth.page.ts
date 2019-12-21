@@ -12,17 +12,32 @@ import {AuthService} from './auth.service';
 })
 export class AuthPage {
   form: FormGroup;
+  users = [
+    {
+      name: 'employee'
+    },
+    {
+      name: 'recruit'
+    },
+    {
+      name: 'manager'
+    },
+    {
+      name: 'supplier'
+    }
+  ];
 
   constructor(private router: Router,
               private storageSvc: StorageService,
               private authSvc: AuthService) {
     this.form = new FormGroup({
       identifier: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(16)]),
-      password: new FormControl('', [Validators.required])
+      password: new FormControl('zouleyuan', [Validators.required])
     });
   }
 
   login() {
+    console.log(this.form.value);
     if (this.form.invalid) {
       return false;
     }

@@ -29,6 +29,13 @@ a {
 
 table {
   width: 100%;
+  td {
+    button {
+      margin-right: 8px !important;
+      font-size: 12px !important;
+      line-height: 24px !important;
+    }
+  }
 }
 
 ion-note {

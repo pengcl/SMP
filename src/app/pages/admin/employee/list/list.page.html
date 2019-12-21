@@ -129,7 +129,7 @@
     <!-- projects Column -->
     <ng-container matColumnDef="projects">
       <th mat-header-cell *matHeaderCellDef> 项目</th>
-      <td mat-cell *matCellDef="let element"><a [routerLink]="['/admin/supplier/item',element.id]" class="link"
+      <td mat-cell *matCellDef="let element"><a [routerLink]="['/admin/project/item',element.projects[0].id]" class="link"
                                                 href="javascript:;">{{element.projects.length > 0 ? element.projects[0].name : '无'}}</a>
       </td>
     </ng-container>

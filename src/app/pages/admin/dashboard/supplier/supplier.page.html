@@ -1,0 +1,181 @@
+<mat-card class="profile">
+  <mat-card-header>
+    <div mat-card-avatar class="header-image">
+      <img [src]="'/api' + user.avatar.url">
+    </div>
+    <mat-card-title>{{user.name}}</mat-card-title>
+    <mat-card-subtitle>招聘顾问 <span>高级</span></mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-footer class="page-extra">
+    <div>
+      <p>项目</p>
+      <p>{{count.project}}</p>
+    </div>
+    <div>
+      <p>人员</p>
+      <p>{{count.employee}}</p>
+    </div>
+    <div>
+      <p>在岗</p>
+      <p> 4 <span>/ 6</span></p>
+    </div>
+    <div>
+      <p>等待面试</p>
+      <p> 4 </p>
+    </div>
+    <div>
+      <p>今日退场</p>
+      <p> 0 </p>
+    </div>
+  </mat-card-footer>
+</mat-card>
+
+<div class="content">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="left-content" size="9">
+        <mat-tab-group>
+          <mat-tab label="项目">
+            <ion-row>
+              <ion-col *ngFor="let item of projects" size="4">
+                <mat-card>
+                  <mat-card-header>
+                    <mat-card-title>{{item.department.name}}</mat-card-title>
+                    <mat-card-subtitle><a [routerLink]="['/admin/project/item',item.id]" href="javascript:;">{{item.name}}</a></mat-card-subtitle>
+                    <mat-menu #appMenu="matMenu">
+                      <button mat-menu-item>查看</button>
+                      <button mat-menu-item>修改</button>
+                    </mat-menu>
+
+                    <button slot="end" mat-icon-button [matMenuTriggerFor]="appMenu">
+                      <mat-icon>more_vert</mat-icon>
+                    </button>
+                  </mat-card-header>
+                  <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+                  <mat-card-content>
+                    <ion-grid class="date">
+                      <ion-row>
+                        <ion-col size="6">
+                          <ion-card-subtitle>开始时间</ion-card-subtitle>
+                          <ion-card-title>{{item.startAt | date : 'yyyy-MM-dd'}}</ion-card-title>
+                        </ion-col>
+                        <ion-col size="6">
+                          <ion-card-subtitle>预计结束时间</ion-card-subtitle>
+                          <ion-card-title>{{item.endAt | date : 'yyyy-MM-dd'}}</ion-card-title>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row>
+                        <ion-col size="6">
+                          <ion-card-subtitle>使用工时</ion-card-subtitle>
+                          <ion-card-title>75</ion-card-title>
+                        </ion-col>
+                        <ion-col size="6">
+                          <ion-card-subtitle>总工时</ion-card-subtitle>
+                          <ion-card-title>180</ion-card-title>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </mat-card-content>
+                  <mat-divider></mat-divider>
+                  <mat-card-footer>
+                    <mat-label>成员</mat-label>
+                    <div class="avatars">
+                      <span *ngFor="let employee of item.employees" class="avatar">
+                        <a [routerLink]="['/admin/employee/item',employee.id]" href="javascript:;">
+                          <img [src]="'/api' + employee.avatar.url">
+                        </a>
+                      </span>
+                    </div>
+                  </mat-card-footer>
+                </mat-card>
+              </ion-col>
+              <ion-col size="4">
+                <mat-card class="more">
+                  <a routerLink="/admin/project/list" class="more-btn">查看更多</a>
+                </mat-card>
+              </ion-col>
+            </ion-row>
+          </mat-tab>
+          <mat-tab label="人员">
+            <ion-row>
+              <ion-col *ngFor="let item of employees" size="4">
+                <mat-card>
+                  <mat-card-header>
+                    <div mat-card-avatar class="header-image">
+                      <img [src]="'/api' + item.avatar.url">
+                    </div>
+                    <mat-card-title>
+                      <a [routerLink]="['/admin/employee/item',item.id]" href="javascript:;">{{item.name}}</a>
+                      <mat-chip-list>
+                        <mat-chip color="primary" selected>{{item.post.name}}</mat-chip>
+                        <mat-chip color="accent" selected>{{item.level.name}}</mat-chip>
+                      </mat-chip-list>
+                    </mat-card-title>
+                    <mat-card-subtitle><a [routerLink]="['/admin/supplier/item',item.suppliers[0].id]" href="javascript:;">{{item.suppliers[0].name}}</a></mat-card-subtitle>
+                    <mat-menu #appMenu="matMenu">
+                      <button *ngIf="item.status === 'in'" mat-menu-item>出厂</button>
+                      <button *ngIf="item.status === 'trial'" mat-menu-item>入厂</button>
+                      <button *ngIf="item.status === 'out'" mat-menu-item>删除</button>
+                    </mat-menu>
+
+                    <button slot="end" mat-icon-button [matMenuTriggerFor]="appMenu">
+                      <mat-icon>more_vert</mat-icon>
+                    </button>
+                  </mat-card-header>
+                  <mat-divider></mat-divider>
+                  <mat-card-content>
+                    <ion-grid class="date">
+                      <ion-row>
+                        <ion-col size="12">
+                          <ion-card-subtitle>当前项目</ion-card-subtitle>
+                          <ion-card-title>{{item.projects[0].name}}</ion-card-title>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row>
+                        <ion-col size="12">
+                          <ion-card-subtitle>消耗工时</ion-card-subtitle>
+                          <ion-card-title>12工时</ion-card-title>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </mat-card-content>
+                </mat-card>
+              </ion-col>
+              <ion-col size="4">
+                <mat-card class="more">
+                  <a routerLink="/admin/employee/list" class="more-btn">查看更多</a>
+                </mat-card>
+              </ion-col>
+            </ion-row>
+          </mat-tab>
+        </mat-tab-group>
+      </ion-col>
+      <ion-col class="right-content" size="3">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>我的待办事项</mat-card-title>
+            <mat-card-subtitle>更多</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <ion-list>
+              <ion-item detail>
+                <ion-label>
+                  <h2>签到</h2>
+                  <p>签到状态：未签到</p>
+                </ion-label>
+                <ion-note>补签<p style="margin: 0">2019-11-07</p></ion-note>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label>
+                  <h2>工时</h2>
+                  <p>今日工时：未提交</p>
+                </ion-label>
+                <ion-note>补签<p style="margin: 0">2019-11-07</p></ion-note>
+              </ion-item>
+            </ion-list>
+          </mat-card-content>
+        </mat-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>

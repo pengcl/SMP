@@ -25,7 +25,7 @@ import {
   MatTableModule,
   MatPaginatorModule,
   MatProgressBarModule,
-  MatTabsModule, MatSelectModule, MatButtonToggleModule
+  MatTabsModule, MatSelectModule, MatButtonToggleModule, MatAutocompleteModule, MatDatepickerModule, MatNativeDateModule
 } from '@angular/material';
 
 const MATERIAL_PART = [
@@ -50,7 +50,10 @@ const MATERIAL_PART = [
   MatProgressBarModule,
   MatTabsModule,
   MatSelectModule,
-  MatButtonToggleModule
+  MatButtonToggleModule,
+  MatAutocompleteModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
 ];
 
 import {COMPONENTS, ENTRY_COMPONENTS, PIPES} from './index';

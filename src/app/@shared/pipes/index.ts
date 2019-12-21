@@ -13,7 +13,8 @@ import {
   ChipsPipe,
   UserStatusPipe,
   ProjectStatusPipe,
-  TableLabelPipe
+  TableLabelPipe,
+  IdToNamePipe
 } from './pipes.pipe';
 
 export const PIPES_DECLARATIONS = [
@@ -31,5 +32,6 @@ export const PIPES_DECLARATIONS = [
   ChipsPipe,
   UserStatusPipe,
   ProjectStatusPipe,
-  TableLabelPipe
+  TableLabelPipe,
+  IdToNamePipe
 ];

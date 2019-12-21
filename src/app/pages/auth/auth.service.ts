@@ -31,6 +31,10 @@ export class AuthService {
     return this.http.post('api/auth/local', body);
   }
 
+  users(): Observable<any> {
+    return this.http.get('api/users');
+  }
+
   token(token?) {
     if (token) {
       this.storage.set('token', JSON.stringify(token));
