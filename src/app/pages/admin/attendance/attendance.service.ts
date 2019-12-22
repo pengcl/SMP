@@ -16,8 +16,8 @@ export class AttendanceService {
     return this.http.get('api/attendances/' + id);
   }
 
-  find(employee): Observable<any> {
-    return this.http.get('api/attendances?employee=' + employee);
+  find(params): Observable<any> {
+    return this.http.get('api/attendances', {params: params});
   }
 
   count(): Observable<any> {

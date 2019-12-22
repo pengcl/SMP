@@ -17,11 +17,11 @@
     </div>
     <div>
       <p>迟到</p>
-      <p> 20 </p>
+      <p> 2<sub>次</sub> / 10<sub>分钟</sub> </p>
     </div>
     <div>
       <p>早退</p>
-      <p> 20 </p>
+      <p> 3<sub>次</sub> / 45<sub>分钟</sub> </p>
     </div>
   </mat-card-footer>
 </mat-card>
@@ -92,6 +92,9 @@
               </ion-col>
             </ion-row>
           </mat-tab>
+          <mat-tab label="我的考勤">
+
+          </mat-tab>
         </mat-tab-group>
       </ion-col>
       <ion-col class="right-content" size="3">
@@ -109,12 +112,12 @@
                 </ion-label>
                 <ion-note>补签<p style="margin: 0">2019-11-07</p></ion-note>
               </ion-item>
-              <ion-item lines="none">
+              <ion-item detail lines="none">
                 <ion-label>
                   <h2>工时</h2>
                   <p>今日工时：未提交</p>
                 </ion-label>
-                <ion-note>补签<p style="margin: 0">2019-11-07</p></ion-note>
+                <ion-note matBadge="" matBadgePosition="above after">提交<p style="margin: 0">2019-11-07</p></ion-note>
               </ion-item>
             </ion-list>
           </mat-card-content>
