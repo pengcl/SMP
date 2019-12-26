@@ -1,8 +1,9 @@
 <app-header></app-header>
-<mat-sidenav-container class="example-container">
+<mat-sidenav-container>
   <mat-sidenav mode="side" opened>
     <mat-list>
-      <h3 routerLink="/admin/dashboard" routerLinkActive="active" mat-subheader>工作台</h3>
+      <h3 routerLink="/admin/dashboard" routerLinkActive="active" mat-subheader>
+        <mat-icon mat-list-icon>home</mat-icon> 工作台</h3>
       <mat-divider></mat-divider>
       <ng-container *ngIf="user.type !== 'supplier' && user.type !== 'employee'">
         <h3 mat-subheader>
