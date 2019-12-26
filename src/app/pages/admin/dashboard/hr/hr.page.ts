@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef, ViewChild, AfterViewInit} from '@angular/core';
 import {AuthService} from '../../../auth/auth.service';
 import {ProjectService} from '../../project/project.service';
 import {EmployeeService} from '../../employee/employee.service';
@@ -9,7 +9,7 @@ import {SupplierService} from '../../supplier/supplier.service';
   templateUrl: './hr.page.html',
   styleUrls: ['./hr.page.scss']
 })
-export class AdminDashboardHrPage {
+export class AdminDashboardHrPage implements AfterViewInit {
   projects;
   employees;
   user = this.authSvc.currentUser;
@@ -18,12 +18,13 @@ export class AdminDashboardHrPage {
     employee: 0,
     supplier: 0
   };
+  colSize = 4;
+  @ViewChild('content', {static: false}) private content;
 
   constructor(private authSvc: AuthService,
               private projectSvc: ProjectService,
               private employeeSvc: EmployeeService,
               private supplierSvc: SupplierService) {
-    console.log(this.user);
     projectSvc.count().subscribe(res => {
       this.count.project = res;
     });
@@ -39,6 +40,16 @@ export class AdminDashboardHrPage {
     employeeSvc.list().subscribe(res => {
       this.employees = res;
     });
+  }
+
+  ngAfterViewInit() {
+    console.log(this.content.elementRef.nativeElement.clientWidth);
+    if (this.content.elementRef.nativeElement.clientWidth > 1000) {
+      this.colSize = 2;
+    }
+    if (this.content.elementRef.nativeElement.clientWidth > 1400) {
+      this.colSize = 2;
+    }
   }
 
 }
