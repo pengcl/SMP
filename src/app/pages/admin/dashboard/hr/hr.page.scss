@@ -37,9 +37,9 @@ mat-tab-group {
 
 .setting-box {
   background-color: #fff;
-  height: 90px;
+  height: 78px;
   box-sizing: border-box;
-  padding: 15px 15px 15px 90px;
+  padding: 15px;
   position: relative;
   display: block;
   transition: all 0.5s;
@@ -61,18 +61,17 @@ mat-tab-group {
   }
 
   & > .icons {
-    width: 60px;
-    height: 60px;
-    font-size: 32px;
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
     background-color: #f4f5fa;
-    border-radius: 30px;
+    border-radius: 24px;
     text-align: center;
-    line-height: 60px;
-    display: block;
+    line-height: 48px;
+    display: none;
     position: absolute;
     top: 15px;
     left: 15px;
-
     animation-duration: 1s;
     animation-fill-mode: both;
 
@@ -201,11 +200,10 @@ mat-tab-group {
   }
 
   .label {
-    font-weight: bold;
     color: #333;
     line-height: 1;
-    margin-top: 10px;
-    font-size: 24px;
+    margin-top: 5px;
+    font-size: 20px;
   }
 
   .desc {
@@ -237,7 +235,7 @@ mat-tab-group {
       }
 
       &.rate-count {
-        font-size: 36px;
+        font-size: 24px;
       }
     }
   }

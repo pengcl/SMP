@@ -18,6 +18,7 @@ export class AdminDashboardSupplierPage {
     employee: 0,
     supplier: 0
   };
+  colSize = 2;
 
   constructor(private authSvc: AuthService,
               private projectSvc: ProjectService,
