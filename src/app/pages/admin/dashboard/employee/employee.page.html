@@ -1,20 +1,7 @@
 <mat-sidenav-container>
-  <mat-sidenav-content #content>
-    <mat-tab-group style="height: 100%" mat-align-tabs="center">
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <span matBadgeOverlap="false">签到</span>
-        </ng-template>
-
-      </mat-tab>
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <span matBadgeOverlap="false">考勤记录</span>
-        </ng-template>
-
-      </mat-tab>
-    </mat-tab-group>
-  </mat-sidenav-content>
+  <mat-grid-list [cols]="7" rowHeight="fit">
+    <mat-grid-tile *ngFor="let item of items">{{item + 1}}</mat-grid-tile>
+  </mat-grid-list>
   <mat-sidenav mode="side" opened position="end">
     <ion-list>
       <ion-list-header><span matBadge="15" matBadgeColor="warn" matBadgeOverlap="false">我的待办</span></ion-list-header>

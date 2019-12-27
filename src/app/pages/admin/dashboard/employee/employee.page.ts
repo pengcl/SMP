@@ -9,12 +9,12 @@ import {ProjectService} from '../../project/project.service';
 })
 export class AdminDashboardEmployeePage {
   user = this.authSvc.currentUser;
-  projects;
+  items: any[] = Array(31)
+    .fill(0)
+    .map((_v: any, i: number) => i);
 
   constructor(private authSvc: AuthService, private projectSvc: ProjectService) {
-    projectSvc.find({employees: this.user.employee.id}).subscribe(res => {
-      this.projects = res;
-    });
+
   }
 
 }

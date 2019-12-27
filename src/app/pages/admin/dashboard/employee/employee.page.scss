@@ -5,23 +5,15 @@ mat-sidenav-container {
   right: 0;
   bottom: 0;
   padding: 16px;
-
-  mat-sidenav {
-    width: 300px;
-  }
-}
-
-mat-tab-group {
-  height: 50%;
-
-  &::ng-deep {
-    .mat-tab-body-wrapper {
-      min-height: calc(100% - 49px);
-    }
-  }
-
   mat-grid-list {
     height: 100%;
+    background: #ededed;
+    mat-grid-tile {
+      background: #fff;
+    }
+  }
+  mat-sidenav {
+    width: 300px;
   }
 }
 
