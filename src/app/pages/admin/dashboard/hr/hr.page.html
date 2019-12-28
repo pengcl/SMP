@@ -116,16 +116,13 @@
 -->
 <mat-sidenav-container>
   <mat-sidenav-content #content>
-    <mat-tab-group style="height: 40%">
+    <mat-tab-group style="height: 25%">
       <mat-tab>
         <ng-template mat-tab-label>
           <span matBadge="15" matBadgeColor="warn" matBadgeOverlap="false">预警</span>
         </ng-template>
         <ion-grid class="alert">
           <ion-row>
-            <ion-col [size]="1" style="align-self: center">
-              <div style="text-align: center">项目</div>
-            </ion-col>
             <ion-col [size]="colSize">
               <div class="menu-item">
                 <a href="javascript:;" class="setting-box">
@@ -133,7 +130,7 @@
                     <ion-icon name="ios-alarm" color="danger"></ion-icon>
                   </i>
                   <div class="label" style="color: #ff0000">3</div>
-                  <div class="desc">剩余工时不足</div>
+                  <div class="desc">工时不足</div>
                 </a>
               </div>
             </ion-col>
@@ -144,14 +141,9 @@
                     <ion-icon name="ios-people" color="danger"></ion-icon>
                   </i>
                   <div class="label" style="color: #ff0000">2</div>
-                  <div class="desc">项目人员不足</div>
+                  <div class="desc">人员不足</div>
                 </a>
               </div>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col [size]="1" style="align-self: center">
-              <div style="text-align: center">人员</div>
             </ion-col>
             <ion-col [size]="colSize">
               <div class="menu-item">
@@ -171,7 +163,7 @@
                     <ion-icon name="ios-people" color="success"></ion-icon>
                   </i>
                   <div class="label" style="color: #10dc60">0</div>
-                  <div class="desc">简历不完整</div>
+                  <div class="desc">不完整</div>
                 </a>
               </div>
             </ion-col>
@@ -179,16 +171,14 @@
         </ion-grid>
       </mat-tab>
     </mat-tab-group>
-    <mat-tab-group style="height: 60%">
+    <mat-tab-group style="height: 75%">
       <mat-tab>
         <ng-template mat-tab-label>
           统计
         </ng-template>
         <ion-grid>
           <ion-row>
-            <ion-col [size]="1" style="align-self: center">
-              <div style="text-align: center">项目</div>
-            </ion-col>
+            <ion-col size="12" style="font-size: 12px">项目</ion-col>
             <ion-col [size]="colSize">
               <div class="menu-item">
                 <a href="javascript:;" class="setting-box">
@@ -213,9 +203,7 @@
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col [size]="1" style="align-self: center">
-              <div style="text-align: center">人员</div>
-            </ion-col>
+            <ion-col size="12" style="font-size: 12px">人员</ion-col>
             <ion-col [size]="colSize">
               <div class="menu-item">
                 <a href="javascript:;" class="setting-box">
@@ -223,7 +211,7 @@
                     <ion-icon name="ios-people" style="color: #d6b993;"></ion-icon>
                   </i>
                   <div class="label">197</div>
-                  <div class="desc">需要外包人员</div>
+                  <div class="desc">需求</div>
                 </a>
               </div>
             </ion-col>
@@ -234,7 +222,7 @@
                     <ion-icon name="ios-people" style="color: #64c0cb"></ion-icon>
                   </i>
                   <div class="label">122 / 100 / 22</div>
-                  <div class="desc">到岗外包人员 / 正式 / 试用</div>
+                  <div class="desc">到岗 / 正式 / 试用</div>
                   <div class="rate">
                     <span class="rate-count">78%</span>
                     <span class="rate-label">到岗率</span>
@@ -249,16 +237,14 @@
                     <ion-icon name="ios-people" style="color: #e58f9d"></ion-icon>
                   </i>
                   <div class="label">75</div>
-                  <div class="desc">空缺外包人员</div>
+                  <div class="desc">空缺</div>
                 </a>
               </div>
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col [size]="1" style="align-self: center">
-              <div style="text-align: center">面试</div>
-            </ion-col>
-            <ion-col [size]="colSize">
+            <ion-col size="12" style="font-size: 12px">面试</ion-col>
+            <ion-col [size]="2.5">
               <div class="menu-item">
                 <a href="javascript:;" class="setting-box">
                   <i class="icons">
@@ -269,7 +255,7 @@
                 </a>
               </div>
             </ion-col>
-            <ion-col [size]="colSize">
+            <ion-col [size]="2.5">
               <div class="menu-item">
                 <a href="javascript:;" class="setting-box">
                   <i class="icons">
@@ -280,7 +266,7 @@
                 </a>
               </div>
             </ion-col>
-            <ion-col [size]="colSize">
+            <ion-col [size]="2.5">
               <div class="menu-item">
                 <a href="javascript:;" class="setting-box">
                   <i class="icons">
@@ -291,7 +277,7 @@
                 </a>
               </div>
             </ion-col>
-            <ion-col [size]="colSize">
+            <ion-col [size]="2.5">
               <div class="menu-item">
                 <a href="javascript:;" class="setting-box">
                   <i class="icons">
@@ -302,23 +288,21 @@
                 </a>
               </div>
             </ion-col>
-            <ion-col [size]="colSize">
+            <ion-col>
               <div class="menu-item">
                 <a href="javascript:;" class="setting-box">
                   <i class="icons">
                     <ion-icon name="md-people" style="color: #e58f9d"></ion-icon>
                   </i>
-                  <div class="label">13/5</div>
-                  <div class="desc">拒绝/未到</div>
+                  <div class="label">5</div>
+                  <div class="desc">拒绝</div>
                 </a>
               </div>
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col [size]="1" style="align-self: center">
-              <div style="text-align: center">考勤</div>
-            </ion-col>
-            <ion-col [size]="colSize">
+            <ion-col size="12" style="font-size: 12px">考勤</ion-col>
+            <ion-col [size]="2.5">
               <div class="menu-item">
                 <a href="javascript:;" class="setting-box">
                   <i class="icons">
@@ -329,7 +313,7 @@
                 </a>
               </div>
             </ion-col>
-            <ion-col [size]="colSize">
+            <ion-col [size]="2.5">
               <div class="menu-item">
                 <a href="javascript:;" class="setting-box">
                   <i class="icons">
@@ -340,7 +324,7 @@
                 </a>
               </div>
             </ion-col>
-            <ion-col [size]="colSize">
+            <ion-col [size]="2.5">
               <div class="menu-item">
                 <a href="javascript:;" class="setting-box">
                   <i class="icons">
@@ -351,7 +335,7 @@
                 </a>
               </div>
             </ion-col>
-            <ion-col [size]="colSize">
+            <ion-col [size]="2.5">
               <div class="menu-item">
                 <a href="javascript:;" class="setting-box">
                   <i class="icons">
@@ -362,7 +346,7 @@
                 </a>
               </div>
             </ion-col>
-            <ion-col [size]="colSize">
+            <ion-col [size]="2">
               <div class="menu-item">
                 <a href="javascript:;" class="setting-box">
                   <i class="icons">

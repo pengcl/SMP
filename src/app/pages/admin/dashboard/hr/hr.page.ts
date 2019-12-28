@@ -15,7 +15,7 @@ export class AdminDashboardHrPage {
     employee: 0,
     supplier: 0
   };
-  colSize = 2;
+  colSize = 3;
 
   constructor(private authSvc: AuthService) {
   }

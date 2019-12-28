@@ -37,9 +37,9 @@ mat-tab-group {
 
 .setting-box {
   background-color: #fff;
-  height: 78px;
+  height: 64px;
   box-sizing: border-box;
-  padding: 15px;
+  padding: 15px 15px 15px 65px;
   position: relative;
   display: block;
   transition: all 0.5s;
@@ -61,14 +61,14 @@ mat-tab-group {
   }
 
   & > .icons {
-    width: 48px;
-    height: 48px;
-    font-size: 24px;
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
     background-color: #f4f5fa;
-    border-radius: 24px;
+    border-radius: 18px;
     text-align: center;
-    line-height: 48px;
-    display: none;
+    line-height: 36px;
+    display: block;
     position: absolute;
     top: 15px;
     left: 15px;
@@ -202,7 +202,7 @@ mat-tab-group {
   .label {
     color: #333;
     line-height: 1;
-    margin-top: 5px;
+    margin-top: 0;
     font-size: 20px;
   }
 
